@@ -1,8 +1,8 @@
-import {getOxygenScore} from './Utils/getOxygenScore.js';
-import {getConsciousnessScore} from './Utils/getConsciousnessScore.js';
-import {getRespirationRateScore} from './Utils/getRespirationRateScore.js';
-import {getSpo2Score} from './Utils/getSpo2Score.js';
-import {getTemperatureScore} from './Utils/getTemperatureScore.js';
+import {getOxygenScore} from './sub-functions/getOxygenScore.js';
+import {getConsciousnessScore} from './sub-functions/getConsciousnessScore.js';
+import {getRespirationRateScore} from './sub-functions/getRespirationRateScore.js';
+import {getSpo2Score} from './sub-functions/getSpo2Score.js';
+import {getTemperatureScore} from './sub-functions/getTemperatureScore.js';
 
 
 exports.getPatientScore = function(patientObject) {
