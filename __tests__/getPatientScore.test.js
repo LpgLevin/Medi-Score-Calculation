@@ -2,29 +2,37 @@ const { getPatientScore } = require('../getPatientScore.js');
 const { patient1, patient2, patient3, patientA, patientB, patientC } = require('../data/patient-objects.js');
 
 
+
 describe('getPatientScore', () => {
 
-    test("should take a patient object and return a number", () => {
+    describe("rules & parameters", () => {
 
-        expect(typeof getPatientScore(patient1)).toBe("number");
+        test("should take a patient object and return a number", () => {
+            expect(typeof getPatientScore(patient1)).toBe("number");
+        });
+
     });
 
-    test("should return a score of 0 for patient1 and patientA", () => {
+    describe("specific functionality", () => {
 
-        expect(getPatientScore(patient1)).toBe(0);
-        expect(getPatientScore(patientA)).toBe(0);
-    });
+        test("should return a score of 0 for patient1 and patientA", () => {
 
-    test("should return a score of 4 for patient2 and patientB", () => {
+            expect(getPatientScore(patient1)).toBe(0);
+            expect(getPatientScore(patientA)).toBe(0);
+        });
 
-        expect(getPatientScore(patient2)).toBe(4);
-        expect(getPatientScore(patientB)).toBe(4);
-    });
+        test("should return a score of 4 for patient2 and patientB", () => {
 
-    test("should return a score of 8 for patient3 and patientC", () => {
+            expect(getPatientScore(patient2)).toBe(4);
+            // expect(getPatientScore(patientB)).toBe(4);
+        });
 
-        expect(getPatientScore(patient3)).toBe(8);
-        expect(getPatientScore(patientC)).toBe(8);
+        test("should return a score of 8 for patient3 and patientC", () => {
+
+            expect(getPatientScore(patient3)).toBe(8);
+            expect(getPatientScore(patientC)).toBe(8);
+        });
+
     });
 
 });
