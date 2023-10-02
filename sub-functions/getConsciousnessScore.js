@@ -1,11 +1,9 @@
 exports.getConsciousnessScore = function (consciousness) {
 
-    let consciousnessScore = 0;
-
-    if( consciousness === 'CVPU' ) {
-        consciousnessScore += 3;
-    }
-
-    return consciousnessScore;
+    if( consciousness === 'CVPU' || consciousness === 3 ) {
+        return 3;
+    } else {
+        return 0;
+    };
 
 };
