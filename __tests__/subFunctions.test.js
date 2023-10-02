@@ -5,6 +5,7 @@ const { getRespirationRateScore } = require('../sub-functions/getRespirationRate
 const { getSpo2Score } = require('../sub-functions/getSpo2Score.js');
 const { getTemperatureScore } = require('../sub-functions/getTemperatureScore.js');
 const { getCbgScore } = require('../sub-functions/getCbgScore.js');
+const { compareScores } = require('../sub-functions/compareScores.js');
 const { zeroToThree } = require('../utils/zeroToThree.js');
 
 
@@ -421,5 +422,33 @@ describe("getCbgScore", () => {
         });
 
         
+    });
+});
+
+describe("compareScores", () => {
+
+    describe("rules & parameters", () => {
+
+        test("should take two parameters, both numbers, and return a boolean", () => {
+
+            expect(typeof compareScores(5, 7)).toBe("boolean");
+
+        });
+
+    });
+
+    describe("specific functionality", () => {
+
+        test("should return true when the total score is at least 2 more than the latest_score, otherwise it should return false", () => {
+
+            expect(compareScores(5, 7)).toBe(true);
+            expect(compareScores(2, 2)).toBe(false);
+            expect(compareScores(4, 9)).toBe(true);
+            expect(compareScores(6, 4)).toBe(false);
+            expect(compareScores(3, 0)).toBe(false);
+            expect(compareScores(8, 12)).toBe(true);
+
+        });
+
     });
 });
