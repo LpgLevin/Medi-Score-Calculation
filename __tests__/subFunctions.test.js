@@ -211,7 +211,7 @@ describe("getSpo2Score", () => {
 
     });
 
-    describe("specific functionality", () => { 
+    describe.only("specific functionality", () => { 
         
         test("should return 3 when passed 'oxygen' and a number >= 97 AND when passsed 'air' and a number <= 83", () => {
 
@@ -238,18 +238,22 @@ describe("getSpo2Score", () => {
             const score1 = getSpo2Score("air", 84);
             const score2 = getSpo2Score("oxygen", 93);
 
-            expect(score1).toBe(1);
+            expect(score1).toBe(2);
             expect(score2).toBe(1);
 
         });
 
-        test("should return 0 when passed 'oxygen' and a number between 86 and 92 inclusive AND when passed 'air' and a number between 88 and 94 inclusive", () => {
+        test("should return 0 when passed 'oxygen'/2 and a number between 86 and 92 inclusive AND when passed 'air'/0 and a number between 88 and 94 inclusive", () => {
 
             const score1 = getSpo2Score("air", 88);
+            const scoreA = getSpo2Score( 0, 88 );
             const score2 = getSpo2Score("oxygen", 92);
+            const scoreB = getSpo2Score( 2, 97);
 
             expect(score1).toBe(0);
+            expect(scoreA).toBe(0);
             expect(score2).toBe(0);
+            expect(scoreB).toBe(3);
 
         });
 
