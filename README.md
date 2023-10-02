@@ -45,9 +45,9 @@ Because all of the examples show the patient's temperature already rounded to on
 
 Temperature	Float - This should be rounded to a single decimal place.
 
-#CBG
+# CBG
 
-I have added 2 properties to my test data for the CBG tests: fasting - which will have a boolean value of true or false, and cbg - which will have a number value. The number value translates to a different score depending on wether the patient id fasting or fed. eg:
+I have added 2 properties to my test data for the CBG tests: fasting - which has a boolean value of true or false, and cbg - which has a number value. The number value translates to a different score depending on wether the patient is fasting or not. eg:
 
 exports.patient9 = { 
     air_or_oxygen: 2, 
@@ -58,3 +58,24 @@ exports.patient9 = {
     fasted: false,
     CBG: 9.0
 };
+
+## Alert Logic
+
+An alert to show when a patient's score has gone up more than 2 points in the last 24 hours would require one of the following:
+
+# 1. Assuming the patient scores are collected at various points throughout the day:
+
+- A database to store the patient's scores, which would added to every time the function is run.
+- All the scores from the last 24 hours could be checked against the new score to see if it has gone up by more than 2 points.
+- If the answer is yes, the function would return the score with an alert message.
+
+# 2. Assuming the patient's score is only collected once a day:
+
+- A property should be added to the patient object to store the latest score.
+- This way we could access the latest score through the patient object passed in and compare it directly with the new score.
+- Then the score property in the patient object would be updated with the new score, ready to be accessed and compared with the next day's score.
+- This way we only compare the new score to one other score, rather than a long list of scores, which would require a database.
+
+--> My Approach
+
+Given the conversations I have had with Luke suggests that the company do not want me to go down the root of creating a database, using SQL and MVC, I have gone with the second option.
