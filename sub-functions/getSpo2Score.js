@@ -5,6 +5,8 @@ exports.getSpo2Score = (oxygenOrAir, spo2) => {
 
     
     if( oxygenOrAir === 'oxygen' || oxygenOrAir === 2 ) {
+
+        console.log("subFunction, oxygenOrAir & sp02:", oxygenOrAir, spo2);
         
         if( spo2 >= 97 ) {
             return 3;

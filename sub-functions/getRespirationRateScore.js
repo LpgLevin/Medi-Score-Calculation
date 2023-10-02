@@ -1,5 +1,7 @@
 exports.getRespirationRateScore = function (respiration_rate) {
 
+    console.log("subFunction, respiration_rate:", respiration_rate);
+
     if( respiration_rate <= 8 || respiration_rate >= 25 ) {
         return 3;
     }

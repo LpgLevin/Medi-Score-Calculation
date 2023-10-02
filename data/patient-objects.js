@@ -1,4 +1,4 @@
-const patient1 = { 
+exports.patient1 = { 
                     air_or_oxygen: 'air', 
                     consciousness: 'alert',
                     respiration_range: 15,
@@ -6,7 +6,7 @@ const patient1 = {
                     temperature: 37.1
                 };
 
-const patient2 = { 
+exports.patient2 = { 
                     air_or_oxygen: 'oxygen', 
                     consciousness: 'alert',
                     respiration_range: 17,
@@ -14,12 +14,12 @@ const patient2 = {
                     temperature: 37.1
                 };
 
-const patient3 = { 
+exports.patient3 = { 
                     air_or_oxygen: 'oxygen', 
                     consciousness: 'CVPU',
-                    respiration_range: 15,
-                    spo2: 95,
-                    temperature: 37.1
+                    respiration_range: 23,
+                    spo2: 88,
+                    temperature: 38.5
                 };
 
                 
@@ -27,7 +27,7 @@ const patient3 = {
 //--------- For the scenario where the first two properties are numbers rather than strings: ------------------
 
 
-const patientA = { 
+exports.patientA = { 
                     air_or_oxygen: 0, 
                     consciousness: 0,
                     respiration_range: 15,
@@ -35,7 +35,7 @@ const patientA = {
                     temperature: 37.1
                 };
 
-const patientB = { 
+exports.patientB = { 
                     air_or_oxygen: 2, 
                     consciousness: 0,
                     respiration_range: 17,
@@ -43,10 +43,10 @@ const patientB = {
                     temperature: 37.1
                 };
 
-const patientC = { 
+exports.patientC = { 
                     air_or_oxygen: 2, 
                     consciousness: 3,
-                    respiration_range: 15,
-                    spo2: 95,
-                    temperature: 37.1
+                    respiration_range: 23,
+                    spo2: 88,
+                    temperature: 38.5
                 };
