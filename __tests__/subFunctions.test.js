@@ -90,7 +90,7 @@ describe("getOxygenScore", () => {
 
     });
 
-    describe.only("specific functionality", () => { 
+    describe("specific functionality", () => { 
 
         test("should return a score of 0 for 'air' and 2 for 'oxygen'", () => {
             
@@ -139,8 +139,10 @@ describe("getRespirationRateScore", () => {
         test("should return 3 when passed a number <= 8 or >= 25", () => {
             
             expect(getRespirationRateScore(8)).toBe(3);
-            expect(getRespirationRateScore(18)).toBe(3);
-            expect(getRespirationRateScore(25)).toBe(3);
+            expect(getRespirationRateScore(18)).toBe(0);
+            expect(getRespirationRateScore(27)).toBe(3);
+            expect(getRespirationRateScore(22)).toBe(2);
+            expect(getRespirationRateScore(10)).toBe(1);
     
         });
 
