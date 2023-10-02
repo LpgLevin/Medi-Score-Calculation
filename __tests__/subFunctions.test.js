@@ -211,7 +211,7 @@ describe("getSpo2Score", () => {
 
     });
 
-    describe.only("specific functionality", () => { 
+    describe("specific functionality", () => { 
         
         test("should return 3 when passed 'oxygen' and a number >= 97 AND when passsed 'air' and a number <= 83", () => {
 

@@ -2,18 +2,16 @@
 
 exports.getTemperatureScore = (number) => {
 
-    let tempScore = 0;
-
     if( number >= 39.1 ) {
-        tempScore = 3;
+        return 3;
     } 
-    if( number >= 38.1 || number <= 35.0) {
-        tempScore = 2;
+    else if( number >= 38.1 || number <= 35.0) {
+        return 2;
     }
-    if( number >= 35.1 && number <= 36.0 ) {
-        tempScore = 1;
-    }
-
-    return tempScore;
+    else if( number >= 35.1 && number <= 36.0 ) {
+        return 1;
+    } else {
+        return 0;
+    };
 
 };
