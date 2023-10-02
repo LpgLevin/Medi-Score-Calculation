@@ -48,7 +48,7 @@ describe("getConsciousnessScore", () => {
         
         });
 
-        test.only("should return a score which matches the number passed in when a number is passed in", () => {
+        test("should return a score which matches the number passed in when a number is passed in", () => {
                 
                     expect(getConsciousnessScore(0)).toBe(0);
                     expect(getConsciousnessScore(3)).toBe(3);
@@ -90,7 +90,7 @@ describe("getOxygenScore", () => {
 
     });
 
-    describe("specific functionality", () => { 
+    describe.only("specific functionality", () => { 
 
         test("should return a score of 0 for 'air' and 2 for 'oxygen'", () => {
             

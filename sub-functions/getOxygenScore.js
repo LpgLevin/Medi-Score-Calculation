@@ -1,11 +1,9 @@
 exports.getOxygenScore = function (oxygenOrAir) {
 
-    let oxygenScore = 0;
-
-    if( oxygenOrAir === 'Oxygen' ) {
-        totalScore += 2;
-    }
-
-    return oxygenScore;
+    if( oxygenOrAir === 'oxygen' || oxygenOrAir === 2 ) {
+        return 2;
+    } else {
+        return 0;
+    };
     
 };
