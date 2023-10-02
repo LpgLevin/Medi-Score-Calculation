@@ -44,3 +44,17 @@ SpO2 (%)
 Because all of the examples show the patient's temperature already rounded to one decimal place, I have interpreted that the function will not have tod do this, and that the data going in will already be rounded:
 
 Temperature	Float - This should be rounded to a single decimal place.
+
+#CBG
+
+I have added 2 properties to my test data for the CBG tests: fasting - which will have a boolean value of true or false, and cbg - which will have a number value. The number value translates to a different score depending on wether the patient id fasting or fed. eg:
+
+exports.patient9 = { 
+    air_or_oxygen: 2, 
+    consciousness: 3,
+    respiration_range: 23,
+    spo2: 88,
+    temperature: 38.5,
+    fasted: false,
+    CBG: 9.0
+};

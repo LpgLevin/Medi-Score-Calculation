@@ -4,7 +4,9 @@ const { getOxygenScore } = require('../sub-functions/getOxygenScore.js');
 const { getRespirationRateScore } = require('../sub-functions/getRespirationRateScore.js');
 const { getSpo2Score } = require('../sub-functions/getSpo2Score.js');
 const { getTemperatureScore } = require('../sub-functions/getTemperatureScore.js');
+const { getCbgScore } = require('../sub-functions/getCbgScore.js');
 const { zeroToThree } = require('../utils/zeroToThree.js');
+
 
 
 describe("getConsciousnessScore", () => { 
@@ -59,6 +61,7 @@ describe("getConsciousnessScore", () => {
     
 });
 
+
 describe("getOxygenScore", () => { 
 
     describe("rules & parameters", () => {
@@ -109,7 +112,6 @@ describe("getOxygenScore", () => {
     });
 
 });
-
 
 
 describe("getRespirationRateScore", () => { 
@@ -262,7 +264,6 @@ describe("getSpo2Score", () => {
 }); 
 
 
-
 describe("getTemperatureScore", () => { 
 
     describe("rules & parameters", () => {
@@ -348,4 +349,77 @@ describe("getTemperatureScore", () => {
         
     });
 
+});
+
+
+describe("getCbgScore", () => {
+
+    describe("rules & parameters", () => {
+
+        test("should take two parameters, a boolean and a number, and return a number", () => {
+
+            expect(typeof getCbgScore(true, 6)).toBe("number");
+
+        });
+
+        test("should return a number between 0 and 3 inclusive", () => {
+
+            const score1 = getCbgScore(true, 6);
+            const score2 = getCbgScore(true, 5.5);
+            const score3 = getCbgScore(true, 3.9);
+
+            expect(zeroToThree(score1)).toBe(true);
+            expect(zeroToThree(score2)).toBe(true);
+            expect(zeroToThree(score3)).toBe(true);
+        });
+
+
+    });
+
+    describe("specific functionality", () => {
+
+        test("should return 3 when passed 'true' with a number >= 6 OR a number <= 3.4 AND when passed 'false' with a number >= 9 OR a number <= 4.5", () => {
+
+            const score1 = getCbgScore(true, 6);
+            const score2 = getCbgScore(true, 3.4);
+            const score3 = getCbgScore(false, 9);
+            const score4 = getCbgScore(false, 4.5);
+
+            expect(score1).toBe(3);
+            expect(score2).toBe(3);
+            expect(score3).toBe(3);
+            expect(score4).toBe(3);
+
+        });
+
+        test("should return 2 when passed 'true' with a number >= 5.5 OR <= 3.9 AND when passed 'false' with a number >= 7.9 OR <= 5.8 ", () => {
+
+            const score1 = getCbgScore(true, 5.5);
+            const score2 = getCbgScore(true, 3.9);
+            const score3 = getCbgScore(false, 7.9);
+            const score4 = getCbgScore(false, 5.8);
+
+            expect(score1).toBe(2);
+            expect(score2).toBe(2);
+            expect(score3).toBe(2);
+            expect(score4).toBe(2);
+
+        });
+
+        test("should return 0 when passed 'true' with a number between 4.0 and 5.4 inclusive AND when passed 'false' with a number between 5.9 and 7.8 inclusive", () => {
+
+            const score1 = getCbgScore(true, 4.0);
+            const score2 = getCbgScore(true, 5.4);
+            const score3 = getCbgScore(false, 5.9);
+            const score4 = getCbgScore(false, 7.8);
+
+            expect(score1).toBe(0);
+            expect(score2).toBe(0);
+            expect(score3).toBe(0);
+            expect(score4).toBe(0);
+
+        });
+
+        
+    });
 });

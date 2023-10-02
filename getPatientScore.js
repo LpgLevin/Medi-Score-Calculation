@@ -3,6 +3,7 @@ const {getConsciousnessScore} = require('./sub-functions/getConsciousnessScore.j
 const {getRespirationRateScore} = require('./sub-functions/getRespirationRateScore.js');
 const {getSpo2Score} = require('./sub-functions/getSpo2Score.js');
 const {getTemperatureScore} = require('./sub-functions/getTemperatureScore.js');
+const {getCbgScore} = require('./sub-functions/getCbgScore.js');
 
 
 exports.getPatientScore = function(patientObject) {
@@ -51,6 +52,11 @@ exports.getPatientScore = function(patientObject) {
 
     console.log("in the function, temperatureScore:", temperatureScore);
 
+    const cbgScore = getCbgScore(patientObject.fasted, patientObject.CBG);
+
+    totalScore += cbgScore;
+
+    console.log("in the function, cbgScore:", cbgScore);
     // add each score to the final score
     //return the final score
     return totalScore;

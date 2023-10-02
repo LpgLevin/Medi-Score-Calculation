@@ -1,5 +1,5 @@
 const { getPatientScore } = require('../getPatientScore.js');
-const { patient1, patient2, patient3, patientA, patientB, patientC } = require('../data/patient-objects.js');
+const { patient1, patient2, patient3, patientA, patientB, patientC, patient4, patient5, patient6, patient7, patient8, patient9 } = require('../data/patient-objects.js');
 
 
 
@@ -24,13 +24,31 @@ describe('getPatientScore', () => {
         test("should return a score of 4 for patient2 and patientB", () => {
 
             expect(getPatientScore(patient2)).toBe(4);
-            // expect(getPatientScore(patientB)).toBe(4);
+            expect(getPatientScore(patientB)).toBe(4);
         });
 
-        test("should return a score of 8 for patient3 and patientC", () => {
+        test("should return a score of 8 for patients 3, C, 5 and 7", () => {
 
             expect(getPatientScore(patient3)).toBe(8);
             expect(getPatientScore(patientC)).toBe(8);
+            expect(getPatientScore(patient5)).toBe(8);
+            expect(getPatientScore(patient7)).toBe(8);
+        });
+
+        test("should return a score of 11 for patient4", () => {
+                
+                expect(getPatientScore(patient4)).toBe(11);
+        });
+
+        test("should return a score of 13 for patients 6 & 9", () => {
+
+            expect(getPatientScore(patient6)).toBe(13);
+            expect(getPatientScore(patient9)).toBe(13);
+        });
+
+        test("should return a score of 5 for patient8", () => {
+
+            expect(getPatientScore(patient8)).toBe(5);
         });
 
     });
