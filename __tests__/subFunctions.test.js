@@ -291,37 +291,58 @@ describe("getTemperatureScore", () => {
 
     describe("specific functionality", () => { 
 
-        test("should return 3 when passed a number >= 39.1", () => {
+        test("should return 3 when passed a number <= 35.0", () => {
+
+            const score1 = getTemperatureScore(35.0);
+            const score2 = getTemperatureScore(34.9);
+
+            expect(score1).toBe(3);
+            expect(score2).toBe(3);
+        });
+
+        test("should return 2 when passed a number >= 39.1", () => {
 
             const score1 = getTemperatureScore(39.1);
             const score2 = getTemperatureScore(40);
 
-            expect(score1).toBe(3);
-            expect(score2).toBe(3);
+            expect(score1).toBe(2);
+            expect(score2).toBe(2);
 
         });
 
-        test("should return 2 when passed a number between 38.1 and 39.0 inclusive OR a number <= 35.0", () => {
+        test("should return 1 when passed a number between 38.1 and 39.0 inclusive OR a number between 35.1 and 36 inclusive", () => {
 
             const score1 = getTemperatureScore(38.1);
             const score2 = getTemperatureScore(38.5);
-            const score3 = getTemperatureScore(35.0);
+            const score3 = getTemperatureScore(35.5);
 
-            expect(score1).toBe(2);
-            expect(score2).toBe(2);
-            expect(score3).toBe(2);
+            expect(score1).toBe(1);
+            expect(score1).toBe(1);
+            expect(score3).toBe(1);
 
         });
 
         test("should return 1 when passed a number between 35.1 and 36.0 inclusive", () => {
 
-            const score1 = getTemperatureScore(35.1);
+            const score1 = getTemperatureScore(38.1);
             const score2 = getTemperatureScore(35.5);
             const score3 = getTemperatureScore(36.0);
 
             expect(score1).toBe(1);
             expect(score2).toBe(1);
             expect(score3).toBe(1);
+
+        });
+
+        test("should return 0 when passed a number between 36.1 and 38.0 inclusive", () => {
+
+            const score1 = getTemperatureScore(36.1);
+            const score2 = getTemperatureScore(37.5);
+            const score3 = getTemperatureScore(38.0);
+
+            expect(score1).toBe(0);
+            expect(score2).toBe(0);
+            expect(score3).toBe(0);
 
         });
         
