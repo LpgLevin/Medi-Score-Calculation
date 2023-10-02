@@ -29,5 +29,18 @@ const patientA = {
 
 I have made it so that the sub-functions which translate the first two properties into scores will do so correctly wether they are passed a string or a number.
 
+I have interpreted that the observations for sp02 will never be below 93 if the patient is on oxygen and all readings below that will be from patients who are on air:
 
+SpO2 (%)	
 
+- ≤83	
+- 84–85	
+- 86–87	
+- 88–92 (or ≥93 on air)	
+- 93–94 on oxygen	
+- 95–96 on oxygen	
+- ≥97 on oxygen
+
+Because all of the examples show the patient's temperature already rounded to one decimal place, I have interpreted that the function will not have tod do this, and that the data going in will already be rounded:
+
+Temperature	Float - This should be rounded to a single decimal place.

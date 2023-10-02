@@ -48,7 +48,7 @@ describe("getConsciousnessScore", () => {
         
         });
 
-        test("should return a score which matches the number passed in when a number is passed in", () => {
+        test.only("should return a score which matches the number passed in when a number is passed in", () => {
                 
                     expect(getConsciousnessScore(0)).toBe(0);
                     expect(getConsciousnessScore(3)).toBe(3);
