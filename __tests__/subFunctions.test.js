@@ -1,15 +1,13 @@
-const { describe } = require('yargs');
+
 const { getConsciousnessScore } = require('../sub-functions/getConsciousnessScore.js');
 const { getOxygenScore } = require('../sub-functions/getOxygenScore.js');
 const { getRespirationRateScore } = require('../sub-functions/getRespirationRateScore.js');
 const { getSpo2Score } = require('../sub-functions/getSpo2Score.js');
 const { getTemperatureScore } = require('../sub-functions/getTemperatureScore.js');
-const { default: test } = require('node:test');
 const { zeroToThree } = require('../utils/zeroToThree.js');
 
 
-
-decscribe("getConsciousnessScore", () => { 
+describe("getConsciousnessScore", () => { 
 
     describe("rules & parameters", () => {
 
@@ -213,7 +211,46 @@ describe("getSpo2Score", () => {
 
     describe("specific functionality", () => { 
         
-        test("")
+        test("should return 3 when passed 'oxygen' and a number >= 97 AND when passsed 'air' and a number <= 83", () => {
+
+            const score1 = getSpo2Score("air", 83);
+            const score2 = getSpo2Score("oxygen", 97);
+
+            expect(score1).toBe(3);
+            expect(score2).toBe(3);
+
+        });
+
+        test("should return 2 when passed 'oxygen' and 95 or 96 AND when passed 'air' and a 85 or 86", () => {
+
+            const score1 = getSpo2Score("air", 85);
+            const score2 = getSpo2Score("oxygen", 95);
+
+            expect(score1).toBe(2);
+            expect(score2).toBe(2);
+
+        });
+
+        test("should return 1 when passed 'oxygen' and a number <= 93 AND when passed 'air' and a 86 o 87", () => {
+
+            const score1 = getSpo2Score("air", 84);
+            const score2 = getSpo2Score("oxygen", 93);
+
+            expect(score1).toBe(1);
+            expect(score2).toBe(1);
+
+        });
+
+        test("should return 0 when passed 'oxygen' and a number between 86 and 92 inclusive AND when passed 'air' and a number between 88 and 94 inclusive", () => {
+
+            const score1 = getSpo2Score("air", 88);
+            const score2 = getSpo2Score("oxygen", 92);
+
+            expect(score1).toBe(0);
+            expect(score2).toBe(0);
+
+        });
+
     });
 
 }); 
@@ -222,7 +259,7 @@ describe("getSpo2Score", () => {
 
 describe("getTemperatureScore", () => { 
 
-    describe("rules", () => {
+    describe("rules & parameters", () => {
 
         test("should return a number", () => {
         
@@ -230,9 +267,57 @@ describe("getTemperatureScore", () => {
     
         });
 
+        test("should return a number between 0 and 3 inclusive", () => {
+    
+            const score1 = getTemperatureScore(37.1);
+            const score2 = getTemperatureScore(37.5);
+            const score3 = getTemperatureScore(38.1);
+    
+            expect(zeroToThree(score1)).toBe(true);
+            expect(zeroToThree(score2)).toBe(true);
+            expect(zeroToThree(score3)).toBe(true);
+    
+        });
+
+
+
     });
 
     describe("specific functionality", () => { 
+
+        test("should return 3 when passed a number >= 39.1", () => {
+
+            const score1 = getTemperatureScore(39.1);
+            const score2 = getTemperatureScore(40);
+
+            expect(score1).toBe(3);
+            expect(score2).toBe(3);
+
+        });
+
+        test("should return 2 when passed a number between 38.1 and 39.0 inclusive OR a number <= 35.0", () => {
+
+            const score1 = getTemperatureScore(38.1);
+            const score2 = getTemperatureScore(38.5);
+            const score3 = getTemperatureScore(35.0);
+
+            expect(score1).toBe(2);
+            expect(score2).toBe(2);
+            expect(score3).toBe(2);
+
+        });
+
+        test("should return 1 when passed a number between 35.1 and 36.0 inclusive", () => {
+
+            const score1 = getTemperatureScore(35.1);
+            const score2 = getTemperatureScore(35.5);
+            const score3 = getTemperatureScore(36.0);
+
+            expect(score1).toBe(1);
+            expect(score2).toBe(1);
+            expect(score3).toBe(1);
+
+        });
         
     });
 

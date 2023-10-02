@@ -1,6 +1,5 @@
 const { getPatientScore } = require('../getPatientScore.js');
-import test from "node:test";
-import "./data/patientObjects.js"
+const { patient1, patient2, patient3, patientA, patientB, patientC } = require('../data/patient-objects.js');
 
 
 describe('getPatientScore', () => {

@@ -1,4 +1,4 @@
-exports.getOxygenOrAirScore = function (oxygenOrAir) {
+exports.getOxygenScore = function (oxygenOrAir) {
 
     let oxygenScore = 0;
 
