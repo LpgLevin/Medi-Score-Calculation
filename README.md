@@ -71,11 +71,47 @@ An alert to show when a patient's score has gone up more than 2 points in the la
 
 # 2. Assuming the patient's score is only collected once a day:
 
-- A property should be added to the patient object to store the latest score.
+- A latest_score property should be added to the patient object so that along with all the other obvs, the latest score is also passed in.
 - This way we could access the latest score through the patient object passed in and compare it directly with the new score.
-- Then the score property in the patient object would be updated with the new score, ready to be accessed and compared with the next day's score.
 - This way we only compare the new score to one other score, rather than a long list of scores, which would require a database.
 
 --> My Approach
 
-Given the conversations I have had with Luke suggests that the company do not want me to go down the root of creating a database, using SQL and MVC, I have gone with the second option.
+Given that the conversations I have had with Luke suggest that the company do not want me to go down the root of creating a database, using SQL and MVC, I have gone with the second option.Here is an example of the patient object with the latest_score property added:
+
+exports.patient2 = { 
+                    air_or_oxygen: 'oxygen', 
+                    consciousness: 'alert',
+                    respiration_range: 17,
+                    spo2: 95,
+                    temperature: 37.1,
+                    fasted: true,
+                    CBG: 4,
+                    latest_score: 3
+                };
+                                // score --> 4
+
+
+exports.patient3 = { 
+                    air_or_oxygen: 'oxygen', 
+                    consciousness: 'CVPU',
+                    respiration_range: 23,
+                    spo2: 88,
+                    temperature: 38.5,
+                    fasted: true,
+                    CBG: 4,
+                    latest_score: 6
+                };
+                                // score --> 8
+                                //*ALERT
+
+I have added fake data for the latest_score property to my test data, and test to check that the function returns the correct score and alert message if required when the latest_score is passed in.
+
+The spec says that the function must return a number, so I have made it so that when an alert is required, the function returns an object with a score property which has a number value and a message property which has a string value.
+
+# My Process
+Below is a screenshot of the first version of my function with the steps broken down and comments explaining what each step is doing:
+
+![A screenshot of the first version of my function showing steps broken down](image.png)
+
+![continued](image-1.png)

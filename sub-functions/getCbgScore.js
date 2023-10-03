@@ -1,5 +1,7 @@
 exports.getCbgScore = (fasting, cbg) => {
 
+    console.log("sub-fuction, getCbgScore, fasting & cbg: ", fasting, cbg);
+
     if(fasting === true){
         if(cbg >= 6 || cbg <= 3.4){
             return 3;

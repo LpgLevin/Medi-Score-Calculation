@@ -1,6 +1,19 @@
 const { getPatientScore } = require('../getPatientScore.js');
-const { patient1, patient2, patient3, patientA, patientB, patientC, patient4, patient5, patient6, patient7, patient8, patient9 } = require('../data/patient-objects.js');
-const { get } = require('http');
+const { 
+    patient1, 
+    patient2, 
+    patient3, 
+    patientA, 
+    patientB, 
+    patientC, 
+    patient4, 
+    patient5, 
+    patient6, 
+    patient7, 
+    patient8, 
+    patient9 
+} = require('../data/patient-objects.js');
+
 
 
 
