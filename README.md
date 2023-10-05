@@ -31,30 +31,30 @@ Whilst this second version of the function has similar computational efficiency 
 >
 Each of these translate their corresponding data into a score for that category, and are all tested in the **'sub-functions.test.js'** file. **'compareScores.js'** is the function which compares the new score to the latest score and returns an alert message if required.
 
-### Notes
+## Notes
 
-#### Testing
+### Testing
 
 - I have used the Jest testing framework to test my function and sub-functions.
 - Although testing was not part of the requirements, I find that they help me to work methodically and to keep track of my progress.
 - My testing is based on *'the happy path'* aka, I have assued that object passed in will not contain any unexpected data types or values.
 >
 
-#### Assumptions
+### Assumptions
 
 ##### The argument
 - The function will be passed a patient object as an argument which looks like this:
 
 `exports.patientA = { 
-                    air_or_oxygen: 0, 
-                    consciousness: 0,
-                    respiration_range: 15,
-                    spo2: 95,
-                    temperature: 37.1,
-                    fasted: false,
-                    CBG: 6,
-                    latest_score: 1              
-                };`
+                        air_or_oxygen: 0, 
+                        consciousness: 0,
+                        respiration_range: 15,
+                        spo2: 95,
+                        temperature: 37.1,
+                        fasted: false,
+                        CBG: 6,
+                        latest_score: 1              
+                    };`
 
 - I have added a *'fasted'* property whose value will be used to work out the CBG score - (More detail below).
 - I have added a *'latest_score'* property whose value would be entered by the user along wiht the other observations, and would be used to compare the new score to. This will determine if an alert message is required.
@@ -138,10 +138,10 @@ Given that the conversations I have had with Luke suggest that the company do no
                     CBG: 4,
                     latest_score: 3
                 };
-                                // score --> 4
+                                // score --> 4`
 
 
-exports.patient3 = { 
+`exports.patient3 = { 
                     air_or_oxygen: 'oxygen', 
                     consciousness: 'CVPU',
                     respiration_range: 23,
