@@ -115,3 +115,13 @@ Below is a screenshot of the first version of my function with the steps broken 
 ![A screenshot of the first version of my function showing steps broken down](image.png)
 
 ![continued](image-1.png)
+
+![sub-function console.logs](image-2.png)
+
+![another example](image-3.png)
+
+![string funcitonality](image-4.png)
+![more string func](image-6.png)
+![more](image-7.png)
+
+![cbg logic](image-5.png)
