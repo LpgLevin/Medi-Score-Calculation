@@ -1,29 +1,29 @@
-const {getOxygenScore} = require('./sub-functions/getOxygenScore.js');
-const {getConsciousnessScore} = require('./sub-functions/getConsciousnessScore.js');
-const {getRespirationRateScore} = require('./sub-functions/getRespirationRateScore.js');
-const {getSpo2Score} = require('./sub-functions/getSpo2Score.js');
-const {getTemperatureScore} = require('./sub-functions/getTemperatureScore.js');
-const {getCbgScore} = require('./sub-functions/getCbgScore.js');
-const {compareScores} = require('./sub-functions/compareScores.js');
+const { getOxygenScore } = require( './sub-functions/getOxygenScore.js' );
+const { getConsciousnessScore } = require( './sub-functions/getConsciousnessScore.js' );
+const { getRespirationRateScore } = require( './sub-functions/getRespirationRateScore.js' );
+const { getSpo2Score } = require( './sub-functions/getSpo2Score.js' );
+const { getTemperatureScore } = require( './sub-functions/getTemperatureScore.js' );
+const { getCbgScore } = require( './sub-functions/getCbgScore.js' );
+const { compareScores } = require( './sub-functions/compareScores.js' );
 
 
-exports.getPatientScore = function(patientObject) {
+exports.getPatientScore = function( patientObject ) {
 
     let totalScore = 0;
 
-    totalScore += getOxygenScore(patientObject.air_or_oxygen);
+    totalScore += getOxygenScore( patientObject.air_or_oxygen );
 
-    totalScore += getConsciousnessScore(patientObject.consciousness);
+    totalScore += getConsciousnessScore( patientObject.consciousness );
 
-    totalScore += getRespirationRateScore(patientObject.respiration_range);
+    totalScore += getRespirationRateScore( patientObject.respiration_range );
 
-    totalScore += getSpo2Score(patientObject.air_or_oxygen, patientObject.spo2);
+    totalScore += getSpo2Score( patientObject.air_or_oxygen, patientObject.spo2 );
 
-    totalScore +=  getTemperatureScore(patientObject.temperature);
+    totalScore +=  getTemperatureScore( patientObject.temperature );
 
-    totalScore += getCbgScore(patientObject.fasted, patientObject.CBG);
+    totalScore += getCbgScore( patientObject.fasted, patientObject.CBG );
 
-    if( compareScores(patientObject.latest_score, totalScore) ) {
+    if( compareScores( patientObject.latest_score, totalScore ) ) {
 
         const alertObject = {
             score: totalScore,

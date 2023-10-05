@@ -1,9 +1,9 @@
-# Medi-Score-Calculation
+### Medi-Score-Calculation
 This is an function which calculates a patient's medi score. 
 The score is based on biological observation readings for different categories. 
 Those readings translate into scores, which can be added up to their overall score.
 
-# My Approach
+## My Approach
 
 From the specifications, I have interpreted that the function I have built will take a patient object as an argument.
 
@@ -41,11 +41,11 @@ SpO2 (%)
 - 95–96 on oxygen	
 - ≥97 on oxygen
 
-Because all of the examples show the patient's temperature already rounded to one decimal place, I have interpreted that the function will not have tod do this, and that the data going in will already be rounded:
+Because all of the examples show the patient's temperature already rounded to one decimal place, I have interpreted that the function will not have to do this, and that the data going in will already be rounded:
 
 Temperature	Float - This should be rounded to a single decimal place.
 
-# CBG
+## CBG
 
 I have added 2 properties to my test data for the CBG tests: fasting - which has a boolean value of true or false, and cbg - which has a number value. The number value translates to a different score depending on wether the patient is fasting or not. eg:
 
@@ -115,3 +115,13 @@ Below is a screenshot of the first version of my function with the steps broken 
 ![A screenshot of the first version of my function showing steps broken down](image.png)
 
 ![continued](image-1.png)
+
+![sub-function console.logs](image-2.png)
+
+![another example](image-3.png)
+
+![string funcitonality](image-4.png)
+![more string func](image-6.png)
+![more](image-7.png)
+
+![cbg logic](image-5.png)
