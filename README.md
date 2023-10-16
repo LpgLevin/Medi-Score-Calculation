@@ -182,3 +182,19 @@ I used console logs in each of my sub-functions to make sure they were all recei
 ![another example](image-3.png)
 
 Thank you for your time in reviewing my work. Please let me know if you would like me to explain anything further.
+
+## Feedback
+
+#### good:
+
+>> Well seperated concerns
+>> Allowed for parts to be re-used
+>> Implemented  a function that accept datatypes listed
+>> Thorought test suite
+>> Detailed readme
+
+#### imporovement:
+
+>> Also too seperated - test data in seperate file - juggling back and forth
+>> Added complexity of string based input
+>> Rounding requirement for the temp - edge case scored incorrectly
